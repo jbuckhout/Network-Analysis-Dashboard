@@ -12,7 +12,7 @@ These fields can be placed into a visualization dashboard as the user needs.
 # Functions:
 Description of all functions and necessary user specific fields.
 
-# main()
+## main()
 Checks all user specific instillations and paths before starting the continuous tshark packet capture and the two directory monitoring threads.
 
 User specific fields:
@@ -26,11 +26,11 @@ User specific fields:
 - elastic_pass: The password for the above username.
 - pipeline: The ingest pipeline name created by the user in ELK Stack
 
-# monitor_data_directory
+## monitor_data_directory
 Monitors the "Raw Data" directory for any new packet capture files. As the capture is a continuous capture, data is appended to files until they reach the limit determined in the initial packet capture command in main(). This function will check the file sizes as they grow until the file is no longer growing in size. Once this happens, the function will send the file to be converted to .json and cleaned of any unnecessary fields that ELK Stack does not accept.
 
-# clean_packet_data
+## clean_packet_data
 Takes in the path to the .pcapng file that needs to be converted, then runs a tshark command to convert the file into .json format and saves this file in the cleaned_data directory. Once the file is in .json format, the function removes the "_type":"doc" field from each packet. This field is deprecated in ELK Stack and will cause an error if files are sent to ELK Stack before it is removed. After the file has been cleaned, it sends the path to the cleaned file to the monitor_cleaned_directory function.
 
-# monitor_cleaned_directory
+## monitor_cleaned_directory
 Monitors the cleaned data directory of any new files placed by the clean_pactek_data. This function takes in the user defined cleaned_path, elastic_user and elastic_path from main. When the function detects a new file placed in this directory, it runs a curl command that sends the cleaned .json packet file to ELK Stack. Once the file is sent, the function will delete the file in order to save space.
