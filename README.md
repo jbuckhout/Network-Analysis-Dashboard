@@ -9,7 +9,7 @@ The options of the packet capture are customizable, however, for the small home 
 Once the packet files have been uploaded to ELK Stack through a created pipeline, it is indexed into the following queryably fields: IP Source, IP Destination, Protocol, Port
 These fields can be placed into a visualization dashboard as the user needs.
 
-# Functions:
+# Functions
 Description of all functions and necessary user specific fields.
 
 ## main()
