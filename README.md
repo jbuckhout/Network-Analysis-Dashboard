@@ -6,7 +6,7 @@ This python code assumes that you already have Wireshark and ELK Stack installed
 After checking all paths, the program will automatically start ELK Stack functionalities and begin a continuous Wireshark packet capture.
 The program multithreads into 2 directory monitoring functions. The first will determine when a new packet capture file is saved and no longer growing in size while the second removes fields not accepted by ELK Stack and sends the file through Logstash.
 The options of the packet capture are customizable, however, for the small home network this was created for, 250 packets per file was sufficient.
-Once the packet files have been uploaded to ELK Stack through a created pipeline, it is indexed into the following queryably fields: IP Source, IP Destination, Protocol, Port
+Once the packet files have been uploaded to ELK Stack through a created pipeline, it is indexed into the following queryably fields: IP Source, IP Destination, Protocol and Port.
 These fields can be placed into a visualization dashboard as the user needs.
 
 # Functions
