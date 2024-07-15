@@ -2,7 +2,7 @@
 Python script that links Wireshark to ELK Stack to provide a real-time visualization of network traffic on Windows bases systems.
 
 # Description
-This python code assumes that you already have Wireshark and ELK Stack installed and set up, however, will prompt the user and run checks to see if all of the paths and installation locations exist and are correct.
+This python code assumes that you already have Wireshark and ELK Stack installed and set up. Commands to set up the Index Mapping and Ingest Pipeline in the dev console of ELK Stack can be found in this repository. Before running the program, create 2 directories. One will contain packet files from Wireshark, and the other will contain files ready to send to ELK Stack. At the beginning of run time, the program will prompt the user and run checks to see if all of the directories and installations exist and are correct.
 After checking all paths, the program will automatically start ELK Stack functionalities and begin a continuous Wireshark packet capture.
 The program multithreads into 2 directory monitoring functions. The first will determine when a new packet capture file is saved and no longer growing in size while the second removes fields not accepted by ELK Stack and sends the file through Logstash.
 The options of the packet capture are customizable, however, for the small home network this was created for, 250 packets per file was sufficient.
