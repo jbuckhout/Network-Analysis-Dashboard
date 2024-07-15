@@ -1,0 +1,18 @@
+# Paste the following command in the dev console of ELK Stack to create the ingest pipeline. This pipeline allows data to be passed into ELK Stack from the program.
+
+PUT _ingest/pipeline/packets
+{
+  "description": "Import Tshark Elasticsearch Output",
+  "processors": [
+    {
+      "date_index_name": {
+        "field": "timestamp",
+        "index_name_prefix": "packets-webserver01-",
+        "date_formats": [
+          "UNIX_MS"
+        ],
+        "date_rounding": "d"
+      }
+    }
+  ]
+}
