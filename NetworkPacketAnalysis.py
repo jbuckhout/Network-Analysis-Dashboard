@@ -3,10 +3,11 @@ Author: Jonathan Buckhout
 Version: 1.0
 Date: 6/18/2024
 Description: This is a projects to show proficiency in data management and display using Network Packet Analysis through
-ELK Stack and Wireshark. Each of the following steps set up the ELK Stack server and link to a file that contains
-Wireshark packet files. Through the file system, Wireskark adds new files as the packet capture continuously runs and
+ELK Stack and Wireshark. The following program sets up the ELK Stack server and sends a file that contains
+Wireshark packets. Through the file system, Wireskark adds new files as the packet capture continuously runs and
 automatically send them to ELK Stack to be processed for search and display. This program runs multiple commands through
-the CMD in order to reach all necessary file paths and run the Wireshark packet capture.
+the CMD in order to reach all necessary file paths, run the Wireshark packet capture, and send data to ELK Stack.
+This program is intended for Windows machines only.
 """
 
 import os
@@ -131,23 +132,23 @@ def main():
     # user specific paths
 
     # path to the bin directory within elasticsearch
-    elasticsearch_path = "C:/ELKStack/elasticsearch/elasticsearch-8.14.1/bin/"
+    elasticsearch_path = "[USER/PATH/TO/ELASTICSEARCH/BIN]"
     # path to the bin directory within kibana
-    kibana_path = "C:/ELKStack/kibana/kibana-8.14.1/bin/"
+    kibana_path = "[USER/PATH/TO/KIBANA/BIN]"
     # path to the bin directory within logstash
-    logstash_path = "C:/ELKStack/logstash/bin/"
+    logstash_path = "[USER/PATH/TO/LOGSTASH/BIN]"
     # path to raw packet .pcapng files
-    raw_data_path = "C:/ELKStack/InputData/RawData/"
+    raw_data_path = "[USER/PATH/TO/PCAPNG/DIRECTORY]"
     # path to cleaned .json files
-    cleaned_data_path = "C:/ELKStack/InputData/CleanedData"
+    cleaned_data_path = "[USER/PATH/TO/JSON/DIRECTORY]"
     # path to tshark.exe
-    tshark_path = "C:/\"Program Files\"/Wireshark/tshark.exe"
+    tshark_path = "[USER/PATH/TO/TSHARK.EXE]"
     # username to the elk stack login
-    elastic_user = "elastic"
+    elastic_user = "[USER ELASTIC USERNAME]"
     # password to the username above
-    elastic_pass = "@NinjaKiwi66"
-    # ingest pipeline name created in ELK Stack
-    pipeline = "packets"
+    elastic_pass = "[USER ELASTIC PASSWORD]"
+    # ingest pipeline name created in ELK Stack if this was not named differently in the "Pipeline Setup Command", use "packets"
+    pipeline = "[USER PIPELINE NAME]"
 
     # checks to make sure that all necessary programs/directories are installed/created
     user_check = input("Do you need to check the paths or installations? (Y/N): ")
