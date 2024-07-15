@@ -147,8 +147,8 @@ def main():
     elastic_user = "[USER ELASTIC USERNAME]"
     # password to the username above
     elastic_pass = "[USER ELASTIC PASSWORD]"
-    # ingest pipeline name created in ELK Stack if this was not named differently in the "Pipeline Setup Command", use "packets"
-    pipeline = "[USER PIPELINE NAME]"
+    # ingest pipeline name created in ELK Stack. If a different name was used when running the Ingest Pipeline setup command, replace "packets" with the name used in the command.
+    pipeline = "packets"
 
     # checks to make sure that all necessary programs/directories are installed/created
     user_check = input("Do you need to check the paths or installations? (Y/N): ")
